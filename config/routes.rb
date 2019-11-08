@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get '/recipes/:id' => 'recipes#show'
     # create action. makes a new recipe in the db
     post '/recipes' => 'recipes#create'
+    # update action. updates a currently existing recipe in the db
+    patch '/recipes/:id' => 'recipes#update'
   end
 end
 

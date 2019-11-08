@@ -22,4 +22,20 @@ class Api::RecipesController < ApplicationController
     @recipe.save
     render 'show.json.jb'
   end
+
+  def update
+    # combination of the show and create, kind of
+    # first find the correct recipe
+    the_id = params[:id]
+    @recipe = Recipe.find_by(id: the_id)
+    # change the attributes of the recipe based on the params
+    @recipe.title = params[:input_title]
+    @recipe.chef = params[:input_chef]
+    @recipe.ingredients = params[:input_ingredients]
+    @recipe.directions = params[:input_directions]
+    @recipe.prep_time = params[:input_prep_time]
+    @recipe.image_url = params[:input_image_url]
+    @recipe.save
+    render 'show.json.jb'
+  end
 end
