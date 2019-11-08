@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     post '/recipes' => 'recipes#create'
     # update action. updates a currently existing recipe in the db
     patch '/recipes/:id' => 'recipes#update'
+    # destroy action. deletes a recipe from the db
+    delete '/recipes/:id' => 'recipes#destroy'
   end
 end
 
