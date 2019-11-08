@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get '/recipes' => 'recipes#index'
     # show action. show one particular recipe
     get '/recipes/:id' => 'recipes#show'
+    # create action. makes a new recipe in the db
+    post '/recipes' => 'recipes#create'
   end
 end
 
