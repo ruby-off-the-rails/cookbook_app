@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     # index action. show all the recipes
     get '/recipes' => 'recipes#index'
+    # show action. show one particular recipe
+    get '/recipes/:id' => 'recipes#show'
   end
 end
 
