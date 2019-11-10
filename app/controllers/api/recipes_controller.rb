@@ -29,12 +29,12 @@ class Api::RecipesController < ApplicationController
     the_id = params[:id]
     @recipe = Recipe.find_by(id: the_id)
     # change the attributes of the recipe based on the params
-    @recipe.title = params[:input_title]
-    @recipe.chef = params[:input_chef]
-    @recipe.ingredients = params[:input_ingredients]
-    @recipe.directions = params[:input_directions]
-    @recipe.prep_time = params[:input_prep_time]
-    @recipe.image_url = params[:input_image_url]
+    @recipe.title = params[:input_title] || @recipe.title
+    @recipe.chef = params[:input_chef] || @recipe.chef
+    @recipe.ingredients = params[:input_ingredients] || @recipe.ingredients
+    @recipe.directions = params[:input_directions] || @recipe.directions
+    @recipe.prep_time = params[:input_prep_time] || @recipe.prep_time
+    @recipe.image_url = params[:input_image_url] || @recipe.image_url
     @recipe.save
     render 'show.json.jb'
   end
