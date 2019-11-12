@@ -3,7 +3,7 @@
     id: recipe.id,
     chef: recipe.chef,
     ingredients: recipe.ingredients,
-    prep_time: recipe.prep_time,
+    prep_time: recipe.friendly_prep_time,
     directions: recipe.directions,
     image_url: recipe.image_url
   }
