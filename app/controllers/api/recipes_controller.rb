@@ -1,8 +1,7 @@
 class Api::RecipesController < ApplicationController
   def index
-
     if current_user
-      @recipes = Recipe.all
+      @recipes = current_user.recipes
       render 'index.json.jb'
     else
       render json: []
@@ -25,9 +24,13 @@ class Api::RecipesController < ApplicationController
       prep_time: params[:input_prep_time],
       ingredients: params[:input_ingredients],
       directions: params[:input_directions],
-      image_url: params[:input_image_url]
+      image_url: params[:input_image_url],
+      user_id: current_user.id
     )
     @recipe.save
+    # p "*" * 50
+    # p @recipe.errors.full_messages
+    # p "*" * 50
     render 'show.json.jb'
   end
 
