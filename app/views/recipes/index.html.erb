@@ -1,13 +1,12 @@
 <h1>hello from the index action</h1>
 
+
+
 <br>
 
 <% @recipes.each do |recipe| %>
   <p>title: <%= recipe.title %></p>
+  <a href="/recipes/<%= recipe.id %>">Go to the show page</a>
   <p>chef: <%= recipe.chef %></p>
-  <p>directions: <%= recipe.directions %></p>
-  <p>prep_time: <%= recipe.prep_time %></p>
-  <p>ingredients: <%= recipe.ingredients %></p>
-  <p>image_url: <%= recipe.image_url %></p>
   <hr>
 <% end %>
