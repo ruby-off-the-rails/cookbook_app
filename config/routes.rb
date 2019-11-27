@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     post "/users" => "users#create"
     post "/sessions" => "sessions#create"
   end
+
+  get "/recipes/:id" => "recipes#show"
 end
 
 # RESTful
