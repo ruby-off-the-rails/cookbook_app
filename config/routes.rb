@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   get "/recipes/:id" => "recipes#show"
+  get "recipes" => "recipes#index"
 end
 
 # RESTful

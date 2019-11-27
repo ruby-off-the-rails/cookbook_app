@@ -3,4 +3,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     render 'show.html.erb'
   end
+
+  def index
+    @recipes = Recipe.all
+    render 'index.html.erb'
+  end
 end
