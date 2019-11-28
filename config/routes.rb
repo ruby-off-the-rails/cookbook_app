@@ -16,11 +16,12 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create"
   end
 
-  get "/recipes/new" => "recipes#new"
-  get "/recipes/:id" => "recipes#show"
   get "/recipes" => "recipes#index"
+  get "/recipes/new" => "recipes#new"
   post "/recipes" => "recipes#create"
+  get "/recipes/:id" => "recipes#show"
   get "/recipes/:id/edit" => "recipes#edit"
+  patch "/recipes/:id" => "recipes#update"
 end
 
 # RESTful
