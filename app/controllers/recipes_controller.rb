@@ -27,4 +27,9 @@ class RecipesController < ApplicationController
     @recipe.save
     redirect_to "/recipes/#{@recipe.id}"
   end
+
+  def edit
+    @recipe = Recipe.find_by(id: params[:id])
+    render 'edit.html.erb'
+  end
 end
