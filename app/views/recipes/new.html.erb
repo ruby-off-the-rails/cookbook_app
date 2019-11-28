@@ -8,5 +8,12 @@ hello from the new action
   <p>directions: <input type="text" name="directions"></p>
   <p>prep time: <input type="text" name="prep_time"></p>
   <p>image url: <input type="text" name="image_url"></p>
+
+  <select name="user_id">
+    <% @users.each do |user| %>
+      <option value="<%= user.id %>"><%= user.email %></option>
+    <% end %>
+  </select>
+
   <input type="submit" value="make a recipe">
 </form>
