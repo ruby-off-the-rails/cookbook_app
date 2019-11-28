@@ -11,3 +11,6 @@ hello from the show file
 <p>prep_time: <%= @recipe.prep_time %></p>
 <p>directions: <%= @recipe.directions %></p>
 <p>created_at: <%= @recipe.created_at %></p>
+
+
+<a href="/recipes/<%= @recipe.id %>" data-method="delete">Delete this product</a>
