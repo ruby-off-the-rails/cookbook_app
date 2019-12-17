@@ -6,6 +6,11 @@ class Api::RecipesController < ApplicationController
     # else
     #   render json: []
     # end
+
+    p "HERE IS THE CURRENT USER YOU BETTER NOT MISS IT"
+    p current_user
+    p "THERE THEY WERE. WHOAHHHH WHAT A CURRENT USER THAT WAS"
+
     @recipes = Recipe.all
     render 'index.json.jb'
     # @recipes = Recipe.where("title LIKE ?", "%#{params[:search]}%")
@@ -22,12 +27,12 @@ class Api::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(
-      chef: params[:input_chef],
-      title: params[:input_title],
-      prep_time: params[:input_prep_time],
-      ingredients: params[:input_ingredients],
-      directions: params[:input_directions],
-      image_url: params[:input_image_url],
+      chef: params[:chef],
+      title: params[:title],
+      prep_time: params[:prep_time],
+      ingredients: params[:ingredients],
+      directions: params[:directions],
+      image_url: params[:image_url],
       user_id: current_user.id
     )
     @recipe.save
@@ -43,13 +48,14 @@ class Api::RecipesController < ApplicationController
     the_id = params[:id]
     @recipe = Recipe.find_by(id: the_id)
     # change the attributes of the recipe based on the params
-    @recipe.title = params[:input_title] || @recipe.title
-    @recipe.chef = params[:input_chef] || @recipe.chef
-    @recipe.ingredients = params[:input_ingredients] || @recipe.ingredients
-    @recipe.directions = params[:input_directions] || @recipe.directions
-    @recipe.prep_time = params[:input_prep_time] || @recipe.prep_time
-    @recipe.image_url = params[:input_image_url] || @recipe.image_url
-    @recipe.save
+    @recipe.title = params[:title] || @recipe.title
+    @recipe.chef = params[:chef] || @recipe.chef
+    @recipe.ingredients = params[:ingredients] || @recipe.ingredients
+    @recipe.directions = params[:directions] || @recipe.directions
+    @recipe.prep_time = params[:prep_time] || @recipe.prep_time
+    @recipe.image_url = params[:image_url] || @recipe.image_url
+    @recipe.user_id = User.first.id
+    @recipe.save!
     render 'show.json.jb'
   end
 
