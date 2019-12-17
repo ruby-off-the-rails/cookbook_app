@@ -6,6 +6,7 @@
     ingredients: recipe.ingredients,
     prep_time: recipe.friendly_prep_time,
     directions: recipe.directions,
-    image_url: recipe.image_url
+    image_url: recipe.image_url,
+    user_id: recipe.user_id
   }
 end
