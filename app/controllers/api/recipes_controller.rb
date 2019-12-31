@@ -6,11 +6,6 @@ class Api::RecipesController < ApplicationController
     # else
     #   render json: []
     # end
-
-    p "HERE IS THE CURRENT USER YOU BETTER NOT MISS IT"
-    p current_user
-    p "THERE THEY WERE. WHOAHHHH WHAT A CURRENT USER THAT WAS"
-
     @recipes = Recipe.all
     render 'index.json.jb'
     # @recipes = Recipe.where("title LIKE ?", "%#{params[:search]}%")

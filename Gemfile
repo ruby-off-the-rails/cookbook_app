@@ -42,4 +42,4 @@ gem 'http'
 gem 'rack-cors'
 gem 'jb'
 gem 'jwt'
-
+gem 'rspec-rails', '~> 3.9'
